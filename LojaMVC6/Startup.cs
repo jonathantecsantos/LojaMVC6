@@ -1,4 +1,7 @@
-﻿namespace LojaMVC6;
+﻿using LojaMVC6.Context;
+using Microsoft.EntityFrameworkCore;
+
+namespace LojaMVC6;
 
 public class Startup
 {
@@ -12,6 +15,15 @@ public class Startup
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+        /*
+        services.AddDbContext<AppDbContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+          "ConnectionStrings": {
+        "DefaultConnection": "Data Source=master;Initial Catalog=LanchesDatabase;Integrated Security=True"
+         },
+        */
+        services.AddDbContext<AppDbContext>();
         services.AddControllersWithViews();
     }
 
